@@ -8,6 +8,7 @@ interface PortfolioProps {
         portfolio_heading: string;
         portfolio_intro: string;
         portfolio_project_card: {
+            platform: string;
             title: string;
             description: string;
             stack: string;
