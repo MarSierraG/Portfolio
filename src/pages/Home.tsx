@@ -15,8 +15,8 @@ interface HomeProps {
 
 export default function Home({ text }: HomeProps) {
     return (
-        <section className="min-h-screen bg-black text-white flex items-center justify-center px-4 pt-0">
-            <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+        <section className="min-h-screen bg-black text-white flex items-center justify-center px-4 pt-20 pb-16">
+            <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20">
 
                 {/* Textos */}
                 <motion.div
@@ -29,17 +29,16 @@ export default function Home({ text }: HomeProps) {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-blue-400"
+                        className="text-blue-400 text-sm sm:text-base"
                     >
                         {text.greeting}
                     </motion.p>
 
-                    {/* Typewriter */}
                     <motion.h1
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
-                        className="text-4xl md:text-5xl font-bold"
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold"
                     >
                         <Typewriter
                             onInit={(typewriter) => {
@@ -55,7 +54,7 @@ export default function Home({ text }: HomeProps) {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
-                        className="text-2xl md:text-3xl"
+                        className="text-xl sm:text-2xl md:text-3xl"
                     >
                         {text.role}{' '}
                         <span className="text-blue-300 font-semibold">{text.developer}</span>
@@ -65,7 +64,7 @@ export default function Home({ text }: HomeProps) {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8 }}
-                        className="text-gray-400 flex items-center gap-2"
+                        className="text-gray-400 flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base"
                     >
                         {text.welcome}
                         <FaRegHandPaper className="text-blue-400 text-lg animate-wiggle inline-block" />
@@ -77,7 +76,7 @@ export default function Home({ text }: HomeProps) {
                     initial={{ opacity: 0, x: 40, scale: 0.9 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="relative w-80 h-80 rounded-full bg-blue-500 p-[5px]"
+                    className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full bg-blue-500 p-[5px]"
                 >
                     <div className="w-full h-full rounded-full overflow-hidden shadow-xl shadow-blue-400">
                         <img

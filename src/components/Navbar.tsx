@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FiMenu, FiX } from 'react-icons/fi';
+
 
 interface NavbarProps {
     items: string[];
@@ -9,7 +11,10 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, buttonText }) => {
-    // Diccionario para mapear los nombres visibles a las rutas reales
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => setIsOpen(!isOpen);
+
     const sectionRoutes: { [key: string]: string } = {
         Home: '/',
         Inicio: '/',
@@ -27,7 +32,14 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
                     Mar();
                 </div>
 
-                {/* Menú */}
+                {/* Botón hamburguesa en móvil */}
+                <div className="md:hidden">
+                    <button onClick={toggleMenu} className="text-white text-2xl">
+                        {isOpen ? <FiX /> : <FiMenu />}
+                    </button>
+                </div>
+
+                {/* Menú escritorio */}
                 <ul className="hidden md:flex space-x-8 text-sm font-medium">
                     {items.map((item, index) => (
                         <li key={index}>
@@ -42,8 +54,8 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
                     ))}
                 </ul>
 
-                {/* Idioma y GitHub */}
-                <div className="flex items-center gap-4">
+                {/* Idioma y GitHub escritorio */}
+                <div className="hidden md:flex items-center gap-4">
                     <button
                         onClick={onToggleLanguage}
                         className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-3 rounded text-xs"
@@ -54,12 +66,47 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
                         href="https://github.com/TU_USUARIO"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white hover:text-blue-400 transition"
+                        className="text-white hover:text-blue-400 transition text-xl"
                     >
-                        <i className="fab fa-github text-xl"></i>
+                        <i className="fab fa-github"></i>
                     </a>
                 </div>
             </div>
+
+            {/* Menú móvil */}
+            {isOpen && (
+                <div className="md:hidden bg-black px-4 pb-4">
+                    <ul className="flex flex-col gap-4 text-sm font-medium">
+                        {items.map((item, index) => (
+                            <li key={index}>
+                                <Link
+                                    to={sectionRoutes[item] || '/'}
+                                    onClick={toggleMenu}
+                                    className="text-gray-400 hover:text-white transition"
+                                >
+                                    {item}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="flex justify-between items-center mt-4">
+                        <button
+                            onClick={onToggleLanguage}
+                            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-3 rounded text-xs"
+                        >
+                            {buttonText} ({currentLang})
+                        </button>
+                        <a
+                            href="https://github.com/TU_USUARIO"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white hover:text-blue-400 transition text-xl"
+                        >
+                            <i className="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };

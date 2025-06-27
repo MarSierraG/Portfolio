@@ -126,14 +126,14 @@ const About: React.FC<AboutProps> = ({ text, skillsText }) => {
     ];
 
     return (
-        <section className="text-white px-4 max-w-6xl mx-auto mt-[100px] mb-[110px] py-16">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-[110px] py-16">
-                {/* Imagen */}
+        <section className="text-white px-4 sm:px-6 md:px-8 max-w-6xl mx-auto mt-[80px] mb-[100px] py-10 sm:py-16">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-[80px]">
+            {/* Imagen */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
-                    className="relative w-60 h-60 rounded-full bg-blue-500 p-[5px] mx-auto md:mx-0"
+                    className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-full bg-blue-500 p-[5px] mx-auto md:mx-0"
                 >
                     <div className="w-full h-full rounded-full overflow-hidden shadow-xl shadow-blue-400">
                         <img
@@ -170,8 +170,8 @@ const About: React.FC<AboutProps> = ({ text, skillsText }) => {
                     className="mt-10"
                 >
                     <h4 className="text-xl text-blue-400 font-bold mb-4">{group.title}</h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                        {group.items.map((tech, j) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {group.items.map((tech, j) => (
                             <motion.div
                                 key={j}
                                 initial={{ opacity: 0, scale: 0.8 }}
@@ -181,7 +181,7 @@ const About: React.FC<AboutProps> = ({ text, skillsText }) => {
                                 className="flex flex-col items-center border border-blue-600 p-4 rounded-lg bg-[#0d1117] hover:bg-[#161b22] transition"
                             >
                                 <div className="text-3xl mb-2">{tech.icon}</div>
-                                <span className="text-sm text-center">{tech.name}</span>
+                                <span className="text-sm text-center break-words">{tech.name}</span>
                             </motion.div>
                         ))}
                     </div>
