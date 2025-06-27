@@ -1,5 +1,5 @@
 import React from 'react';
-import swapfyLogo from '../assets/swapfy-logo.png';
+import swapfyLogo from '../assets/swapfy-presentacion.png';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 
