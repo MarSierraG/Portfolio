@@ -24,6 +24,7 @@ const texts = {
 
         portfolio_project_card: {
             title: 'Swapfy',
+            platform: 'Plataforma de Trueque Digital',
             description: 'Plataforma de trueque digital donde puedes subir artículos, ofrecer o pedir intercambios, gestionar tu perfil, chatear con otros usuarios y (solo si eres administrador) acceder a un panel de administración.',
             stack: 'Angular · Spring Boot · PostgreSQL',
             visit: 'Ver proyecto',
@@ -84,6 +85,7 @@ const texts = {
 
         portfolio_project_card: {
             title: 'Swapfy',
+            platform: 'Digital Bartering Platform',
             description: 'Digital bartering platform where users can upload items, offer or request trades, manage their profile, chat with others, and administrators can access a full admin panel.',
             stack: 'Angular · Spring Boot · PostgreSQL',
             visit: 'Visit project',

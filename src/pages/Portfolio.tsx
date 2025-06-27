@@ -64,7 +64,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ text }) => {
                     </div>
 
                     <h3 className="text-cyan-300 text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 tracking-wide text-center">
-                        Plataforma de Trueque Digital
+                        {text.portfolio_project_card.platform}
                     </h3>
 
                     <p className="text-white text-sm sm:text-base font-semibold mb-4 text-center">
