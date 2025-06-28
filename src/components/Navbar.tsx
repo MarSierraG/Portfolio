@@ -11,7 +11,7 @@ interface NavbarProps {
     buttonText: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, buttonText }) => {
+const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen(!isOpen);
@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
                     Mar();
                 </div>
 
-                {/* Botón hamburguesa en móvil */}
+                {/* Botón menu en móvil */}
                 <div className="md:hidden">
                     <button onClick={toggleMenu} className="text-white text-2xl">
                         {isOpen ? <FiX /> : <FiMenu />}
