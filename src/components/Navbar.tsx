@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
+import {FaGlobeAmericas} from "react-icons/fa";
 
 
 interface NavbarProps {
-    items: string[];
+    items: { key: string; label: string; path: string }[];
     currentLang: 'es' | 'en';
     onToggleLanguage: () => void;
     buttonText: string;
@@ -14,15 +15,6 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen(!isOpen);
-
-    const sectionRoutes: { [key: string]: string } = {
-        Home: '/',
-        Inicio: '/',
-        'About me': '/about',
-        'Sobre mí': '/about',
-        Portfolio: '/portfolio',
-        Portafolio: '/portfolio',
-    };
 
     return (
         <nav className="fixed top-0 left-0 w-full bg-black text-white z-50 shadow-md">
@@ -41,13 +33,13 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
 
                 {/* Menú escritorio */}
                 <ul className="hidden md:flex space-x-8 text-sm font-medium">
-                    {items.map((item, index) => (
-                        <li key={index}>
+                    {items.map((item) => (
+                        <li key={item.key}>
                             <Link
-                                to={sectionRoutes[item] || '/'}
+                                to={item.path}
                                 className="relative text-gray-400 hover:text-white transition"
                             >
-                                {item}
+                                {item.label}
                                 <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-400 transition-all duration-300 hover:w-full"></span>
                             </Link>
                         </li>
@@ -58,12 +50,14 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
                 <div className="hidden md:flex items-center gap-4">
                     <button
                         onClick={onToggleLanguage}
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-3 rounded text-xs"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-3 rounded text-xs flex items-center gap-2"
+                        title="Cambiar idioma / Change language"
                     >
-                        {buttonText} ({currentLang})
+                        <FaGlobeAmericas />
+                        {currentLang === 'es' ? 'English' : 'Español'}
                     </button>
                     <a
-                        href="https://github.com/TU_USUARIO"
+                        href="https://github.com/MarSierraG"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white hover:text-blue-400 transition text-xl"
@@ -77,14 +71,14 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
             {isOpen && (
                 <div className="md:hidden bg-black px-4 pb-4">
                     <ul className="flex flex-col gap-4 text-sm font-medium">
-                        {items.map((item, index) => (
-                            <li key={index}>
+                        {items.map((item) => (
+                            <li key={item.key}>
                                 <Link
-                                    to={sectionRoutes[item] || '/'}
+                                    to={item.path}
                                     onClick={toggleMenu}
                                     className="text-gray-400 hover:text-white transition"
                                 >
-                                    {item}
+                                    {item.label}
                                 </Link>
                             </li>
                         ))}
@@ -92,12 +86,14 @@ const Navbar: React.FC<NavbarProps> = ({ items, currentLang, onToggleLanguage, b
                     <div className="flex justify-between items-center mt-4">
                         <button
                             onClick={onToggleLanguage}
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-3 rounded text-xs"
+                            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-3 rounded text-xs flex items-center gap-2"
+                            title="Cambiar idioma / Change language"
                         >
-                            {buttonText} ({currentLang})
+                            <FaGlobeAmericas />
+                            {currentLang === 'es' ? 'English' : 'Español'}
                         </button>
                         <a
-                            href="https://github.com/TU_USUARIO"
+                            href="https://github.com/MarSierraG"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-white hover:text-blue-400 transition text-xl"

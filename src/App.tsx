@@ -13,6 +13,7 @@ const texts = {
         developer: 'Web',
         welcome: 'Bienvenido a mi web personal',
         button: 'English',
+        home: 'Inicio',
         about: 'Sobre mí',
         portfolio: 'Portafolio',
         blog: 'Blog',
@@ -74,6 +75,7 @@ const texts = {
         developer: 'Developer',
         welcome: 'Welcome to my personal website',
         button: 'Español',
+        home: 'Home',
         about: 'About me',
         portfolio: 'Portfolio',
         blog: 'Blog',
@@ -143,7 +145,12 @@ function App() {
         <div className="bg-black text-white">
         <Router>
             <Navbar
-                items={['Home', t.about, t.portfolio]}
+                items={[
+                    { key: 'home', label: t.home, path: '/' },
+                    { key: 'about', label: t.about, path: '/about' },
+                    { key: 'portfolio', label: t.portfolio, path: '/portfolio' },
+                ]}
+
                 currentLang={language}
                 onToggleLanguage={toggleLanguage}
                 buttonText={language === 'es' ? 'EN' : 'ES'}
