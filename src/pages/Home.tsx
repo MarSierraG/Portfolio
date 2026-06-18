@@ -1,4 +1,4 @@
-import avatar from '../assets/avatar.png';
+import avatar from '../assets/avatar2.png';
 import { FaRegHandPaper } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
