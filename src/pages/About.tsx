@@ -1,4 +1,4 @@
-import avatar from '../assets/avatar.png';
+import avatar from '../assets/avatar2.png';
 import { FaNetworkWired } from 'react-icons/fa';
 import { FaLinux, FaWindows } from 'react-icons/fa';
 import { motion } from 'framer-motion';
